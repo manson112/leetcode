@@ -3,7 +3,7 @@ class Solution:
         maxResult = -1
         result = ""
         for i in range(len(num)-2):
-            if len(set(list(num[i:i+3]))) == 1 and int(num[i:i+3]) > maxResult:
-                maxResult = int(num[i:i+3])
-                result = num[i:i+3]
-        return result
+            if num[i] == num[i+1] and num[i] == num[i+2] and int(num[i]) > maxResult:
+                result = num[i]
+                maxResult = int(num[i])
+        return 3*result if result != "" else result
