@@ -1,10 +1,4 @@
 class Solution:
     def finalValueAfterOperations(self, operations: List[str]) -> int:
-        result = 0
-        for op in operations:
-            if op[0] == '+' or op[-1] == '+':
-                result += 1
-            if op[0] == '-' or op[-1] == '-':
-                result -= 1
-        return result
+        return sum([1 if op[1] == '+' else -1 for op in operations])
                 
