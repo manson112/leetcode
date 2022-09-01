@@ -4,4 +4,6 @@ class Solution:
         for i in range(n//2, 1, -1):
             if n % i == 0:
                 count += 1
+            if count > 3:
+                return False
         return True if count == 3 else False
