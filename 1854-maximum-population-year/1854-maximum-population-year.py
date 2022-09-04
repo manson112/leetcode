@@ -1,11 +1,14 @@
 class Solution:
     def maximumPopulation(self, logs: List[List[int]]) -> int:
-        dic = {}
+        arr = [0 for i in range(101)]
         for log in logs:
             for i in range(log[0], log[1]):
-                if dic.get(i) == None:
-                    dic[i] = 1
-                else:
-                    dic[i] += 1
-        result = sorted(list(dic.items()), key=lambda x:(-x[1], x[0]))
-        return result[0][0]
+                arr[i - 1950] += 1
+                
+        m = 0
+        year = 0
+        for i, v in enumerate(arr):
+            if v > m:
+                m = v
+                year = i + 1950
+        return year
