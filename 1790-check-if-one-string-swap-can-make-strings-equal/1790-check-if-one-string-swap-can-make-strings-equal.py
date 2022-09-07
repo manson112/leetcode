@@ -1,5 +1,7 @@
 class Solution:
     def areAlmostEqual(self, s1: str, s2: str) -> bool:
+        if s1 == s2:
+            return True
         cS1 = Counter(s1)
         cS2 = Counter(s2)
         changes = []
@@ -10,10 +12,10 @@ class Solution:
         for i in range(len(s1)):
             if s1[i] != s2[i]:
                 changes += [i]
-        if len(changes) == 0:
-            return True
-        if len(changes) != 2:
-            return False
+            if len(changes) > 2:
+                return False
+
+        
         
         return s1[changes[0]] == s2[changes[1]] and s1[changes[1]] == s2[changes[0]] 
         
